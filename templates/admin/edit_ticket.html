@@ -1,0 +1,44 @@
+{% extends "main.html" %}
+{% block content %}
+<div class="wrapper" style="width: 50%; margin-right:auto;margin-left:auto; display:flex; flex-direction:column">
+  <div class="wrapper" style="display:flex;">
+    <a href="{{url_for('tickets')}}" style="align-self:center;padding-right: 25px;width: 2%;"><button type="button" class="btn btn-danger" name="button"><i class="fas fa-arrow-left"></i></button></a>
+
+    <h1 style="text-align:center; width: 100%;margin-right:auto;margin-left:auto;">Ticket Edit Form</h1>
+  </div>
+  <div class="">
+    <div class="general-info-row" style="display:flex; flex-direction:row; justify-content:space-between">
+      <p>Ticket ID Number: {{id}}</p>
+      <p>Priority:
+        {% if priority == "URGENT"%}
+        <span style="color:red"><strong>{{priority}}</strong></span>
+        {%elif priority == "SERVICE" %}
+        <span style="color:green"><strong>{{priority}}</strong></span>
+        {%elif priority == "GENERAL_ISSUE" %}
+        <span style="color:green"><strong>{{priority}}</strong></span>
+        {%elif priority == "QUESTION" %}
+        <span style="color:lightblue"><strong>{{priority}}</strong></span>
+        {%endif%}
+      </p>
+      <p>Subject: {{subject}}</p>
+      <p>Email: {{email}}</p>
+    </div>
+    <div class="og_messages" style="box-shadow: black 2px 2px 2px 2px; background-color:#F3F0F0;margin-left:auto;margin-right:auto;width: 100%; word-wrap:break-word;">
+      <p>Message From <span style="color:red;text-transform:uppercase">{{name}}:</span></p>
+      <p>{{messages}}</p>
+    </div>
+    {% for replies in reply_data %}
+    <div class="reply_messages" style="box-shadow: black 2px 2px 2px 2px; background-color:#F3F0F0;margin-left:auto;margin-right:auto;width: 100%; word-wrap:break-word;">
+      <p>Reply From <span style="color:red;text-transform:uppercase">{{replies.replyee}} - {{replies.replytime}} - {{replies.replydate}}</span></p>
+      <p>{{ replies.replymessage }}</p>
+    </div>
+    {%endfor%}
+    <div class="reply-area" style="width:95%; margin-left:auto;margin-right:auto;">
+      <form class="" action="" method="POST" style="display:flex;">
+        <textarea name="reply_area" style="width: 100%;" rows="8" cols="80"></textarea>
+        <button type="submit" class="btn btn-danger" name="button" style="justify-content:center;height:40px;align-self:center; margin-left:10px;">Reply</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

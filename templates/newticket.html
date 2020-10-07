@@ -1,0 +1,19 @@
+{% extends "main.html" %}
+{% block content %}
+<div class="wrapper_newticket" style="display:flex; margin-left: auto; margin-right: auto; width: 50%; justify-content:center;margin-top: 40px;">
+  <form class="" action="" method="post" style='display:flex;flex-direction:column; align-items:center;'>
+    <div class="select&subject">
+      <label for="">Priority Level</label> <select class="" name="priority_level" style="margin-top: 25px;" required>
+        <option value=""></option>
+        <option value="URGENT">URGENT</option>
+        <option value="SERVICE">SERVICE</option>
+        <option value="GENERAL_ISSUE">GENERAL ISSUE</option>
+        <option value="QUESTION">QUESTION</option>
+      </select>
+      <label for="">Subject</label><input type="text" name="subject" value="" required>
+    </div>
+    <label for="">Message</label><textarea name="message" rows="8" cols="80" required></textarea>
+    <button type="submit" name="button" class="btn btn-danger" style="margin-top: 25px;">Submit</button>
+  </form>
+</div>
+{% endblock %}

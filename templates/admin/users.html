@@ -1,0 +1,28 @@
+{% extends "main.html" %}
+{% block content %}
+<div class="wrapper">
+  <h1 style="text-align:center;">REGISTERED USERS</h1>
+  <table style="width: 50%; margin-right: auto; margin-left: auto;">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>USER NAME</th>
+        <th>EMAIL</th>
+        <th>RANK</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for users in get_users %}
+      <tr style="width: 25%;">
+        <td>{{users.id}}</td>
+        <td>{{users.username}}</td>
+        <td>{{users.email}}</td>
+        <td>{{users.rank}}</td>
+        <td><a href="edit_user/{{ users.id }}"><button type="button" class='btn btn-danger' name="button"><i class="fas fa-pencil-alt"></i></button></a></td>
+      </tr>
+      {% endfor %}
+
+    </tbody>
+  </table>
+</div>
+{% endblock %}

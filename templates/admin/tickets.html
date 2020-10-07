@@ -1,0 +1,37 @@
+{% extends "main.html" %}
+{% block content %}
+<div class="" style="display:flex;align-items:center;justify-content:center;flex-direction:column">
+  <h1 style="text-align:center">Admin Panel Ticket Submission's</h1>
+</div>
+<div class="refresh">
+  <table style="width: 50%; margin-right: auto; margin-left: auto;">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>priority</th>
+        <th>Subject</th>
+        <th>email</th>
+        <th>messages</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for tickets in gettickets %}
+      <tr style="width: 25%;">
+        <td>{{tickets.id}}</td>
+        <td>{{tickets.name}}</td>
+        <td>{{tickets.priority}}</td>
+        <td>{{tickets.subject}}</td>
+        <td>{{tickets.email}}</td>
+        <td>{{tickets.messages | truncate(25)}}</td>
+        <td><a href="edit_ticket/{{ tickets.id }}"><button type="button" class='btn btn-danger' name="button"><i class="fas fa-pencil-alt"></i></button></a></td>
+        <td><a href="delete_ticket/{{tickets.id}}"><button type="button" class='btn btn-danger' name="button"><i class="fas fa-times"></i></button></a></td>
+      </tr>
+      {% endfor %}
+
+    </tbody>
+  </table>
+</div>
+<script>
+</script>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "main.html" %}
+{% block content %}
+<div class="jumbotron">
+  <h1>SYSTEM ANALYICS</h1>
+  <p>CURRENT DATE - {{today}}</p>
+  <p>CURRENT TIME - {{current_time}}</p>
+  <p>SYSTEM IP ADDRESS - {{ipaddress}}</p>
+  <p>CPU PERCNTAGE <progress value="{{cpu}}" max="100">{{cpu}}%</progress></p>
+</div>
+{% endblock %}

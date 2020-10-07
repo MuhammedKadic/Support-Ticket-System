@@ -1,0 +1,22 @@
+{% extends "main.html" %}
+{% block content %}
+<div class="wrapper" style="display:flex;justify-content:space-around;flex-direction:column;margin-right:auto;margin-left:auto;width:80%; text-align:center;">
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <ul class='flashes' style="list-style-type:none">
+    {% for message in messages %}
+    <li style="color:green;">{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endwith %}
+  <h1 style="text-transform:uppercase">CURRENTLY EDITING <span style="color:red">{{username}}'s</span> PROFILE</h1>
+  <form class="" action="" method="POST" style="display:flex;justify-content:space-around;">
+    <input type="text" name="username" value="{{username}}">
+    <input type="text" name="email" value="{{email}}">
+    <input type="text" name="rank" value="{{rank}}">
+    <button type="submit" class="btn btn-danger" name="button">SAVE</button>
+  </form>
+  <p>PLEASE REMEMBER ALL CHANGES ARE FINAL</p>
+</div>
+{% endblock %}

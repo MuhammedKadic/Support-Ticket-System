@@ -1,0 +1,16 @@
+{% extends "main.html" %}
+{% block content %}
+<div class="wrapper" style="width: 25%;margin-right:auto;margin-left:auto;">
+  <h1 style="text-align:center;">ADMIN PANEL</h1>
+  <p style="color:red;text-align:center;text-transform: uppercase;">Welcome {{username}}</p>
+  <div class="" style="display:flex;justify-content: space-between">
+    <div class="" style="display:flex;flex-direction:column">
+      <p>Registed Users</p> <a href="{{url_for('users')}}" style="align-self:center;"><button type="button" class="btn btn-danger" name="button"><i class="fas fa-users"></i></button></a>
+    </div>
+    <div class="" style="display:flex;flex-direction:column">
+      <p>Support Tickets</p>
+      <a href="{{url_for('tickets')}}" style='align-self:center;'><button type="button" class="btn btn-danger" name="button"><i class="fas fa-copy"></i></button></a>
+    </div>
+  </div>
+</div>
+{% endblock %}
